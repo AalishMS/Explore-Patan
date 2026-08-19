@@ -296,6 +296,64 @@
 
   /* ============ CATEGORY CARDS (windows) ============ */
   .categories{ background:var(--surface); }
+
+  /* ============ HISTORY TIMELINE ============ */
+  .history{ background:var(--surface); }
+  .timeline{
+    position:relative;
+    max-width:800px;
+    margin:0 auto;
+    padding-left:40px;
+  }
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left:14px; top:0; bottom:0;
+    width:3px;
+    background:linear-gradient(180deg, var(--gold), var(--brick), var(--maroon));
+    border-radius:2px;
+  }
+  .timeline-item{
+    position:relative;
+    margin-bottom:48px;
+    padding:28px 32px;
+    background:var(--parchment);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .timeline-item:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 24px -12px rgba(36,26,20,.25);
+    border-color:var(--gold);
+  }
+  .timeline-item::before{
+    content:"";
+    position:absolute;
+    left:-34px; top:32px;
+    width:14px; height:14px;
+    background:var(--gold);
+    border:3px solid var(--maroon);
+    border-radius:50%;
+  }
+  .timeline-item .year{
+    display:inline-block;
+    font-family:var(--font-display);
+    font-size:1.1rem;
+    color:var(--maroon);
+    background:rgba(110,20,35,.08);
+    padding:4px 14px;
+    border-radius:999px;
+    margin-bottom:12px;
+  }
+  .timeline-item h3{ font-size:1.35rem; color:var(--maroon-deep); margin-bottom:8px; }
+  .timeline-item p{ color:var(--ink-soft); font-size:.98rem; }
+  @media (max-width:700px){
+    .timeline{ padding-left:30px; }
+    .timeline::before{ left:8px; }
+    .timeline-item{ padding:22px 20px; }
+    .timeline-item::before{ left:-28px; top:28px; width:12px; height:12px; }
+  }
   .card-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -492,6 +550,55 @@
     <path d="M0 180 L0 130 L60 130 L60 110 L100 110 L100 90 L140 90 L160 60 L180 90 L220 90 L220 110 L260 110 L260 130 L340 130 L340 100 L380 100 L400 70 L420 100 L460 100 L460 130 L560 130 L560 105 L610 105 L640 75 L670 105 L720 105 L720 130 L820 130 L820 100 L870 100 L900 65 L930 100 L980 100 L980 130 L1080 130 L1080 108 L1130 108 L1160 78 L1190 108 L1240 108 L1240 130 L1340 130 L1340 115 L1380 115 L1400 95 L1420 115 L1440 115 L1440 180 Z" fill="#122439" opacity="0.9"/>
     <path d="M0 180 L0 150 L90 150 L90 130 L150 130 L180 105 L210 130 L270 130 L270 150 L400 150 L400 128 L450 128 L480 100 L510 128 L560 128 L560 150 L700 150 L700 132 L760 132 L790 108 L820 132 L880 132 L880 150 L1020 150 L1020 126 L1080 126 L1110 98 L1140 126 L1200 126 L1200 150 L1440 150 L1440 180 Z" fill="#4a0c17" opacity="0.85"/>
   </svg>
+</section>
+
+<!-- ============ HISTORY TIMELINE ============ -->
+<section class="history" id="history">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Over 2,000 years of continuous heritage</span>
+      <h2>The Story of Patan</h2>
+      <p>One of the oldest cities in the Kathmandu Valley, Patan has been shaped by kingdoms, artisans, earthquakes, and the stubbornness of a community that kept building.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="year">Ancient Origins</span>
+        <h3>Kirat and Lichhavi Roots</h3>
+        <p>Patan, originally called Lalitpur ("city of beauty"), has roots stretching back to the Kirat period and the early Lichhavi era. The city's foundations lie in the Kathmandu Valley's earliest settlements, where trade routes and Buddhist monasteries began shaping its identity long before the temples rose.</p>
+      </div>
+
+      <div class="timeline-item">
+        <span class="year">3rd Century BC</span>
+        <h3>Ashoka's Four Stupas</h3>
+        <p>Emperor Ashoka is credited with establishing the four stupas that still stand at the cardinal corners of Patan. These are among the oldest Buddhist monuments in Nepal and remain pilgrimage sites today, marking the city's sacred geography.</p>
+      </div>
+
+      <div class="timeline-item">
+        <span class="year">12th–18th Century</span>
+        <h3>The Malla Golden Age</h3>
+        <p>The Malla kings of Patan turned the city into a centre of Newar art, metalwork, woodcarving, and temple architecture. Durbar Square, Krishna Mandir, the Golden Temple, and countless courtyards were built or rebuilt during this era. Artisans worked in bronze, stone, and wood at a level that drew comparison with the finest cities in South Asia.</p>
+      </div>
+
+      <div class="timeline-item">
+        <span class="year">1769</span>
+        <h3>Kingdoms End, City Remains</h3>
+        <p>Prithvi Narayan Shah unified the valley's three kingdoms, ending Patan's political independence. But the city's cultural life — its festivals, food traditions, metalwork, and neighbourhood courtyards — continued largely uninterrupted.</p>
+      </div>
+
+      <div class="timeline-item">
+        <span class="year">1979</span>
+        <h3>UNESCO World Heritage Listing</h3>
+        <p>Patan Durbar Square was inscribed as part of the Kathmandu Valley UNESCO World Heritage Site, recognizing the extraordinary concentration of temples, palaces, and courtyards that make the city a living open-air museum.</p>
+      </div>
+
+      <div class="timeline-item">
+        <span class="year">2015 &mdash; Today</span>
+        <h3>Earthquake and Living Restoration</h3>
+        <p>The 2015 earthquake damaged many historic structures, including parts of Durbar Square. Restoration has since been carried out with a mix of traditional craft and modern engineering, proving that Patan's heritage is not frozen — it is actively rebuilt, maintained, and lived in by a community that has always treated the city as a work in progress.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ============ CATEGORY CARDS ============ -->

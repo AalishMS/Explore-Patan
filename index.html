@@ -477,6 +477,48 @@
     color:var(--brick-deep);
   }
 
+  /* ============ RESTAURANTS ============ */
+  .restaurants{ background:var(--surface); }
+  .restaurant-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+  }
+  @media (max-width:900px){ .restaurant-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:600px){ .restaurant-grid{ grid-template-columns:1fr; } }
+  .restaurant-card{
+    background:var(--parchment);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:28px 24px;
+    display:grid;
+    gap:10px;
+    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .restaurant-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 28px -14px rgba(36,26,20,.3);
+    border-color:var(--gold);
+  }
+  .restaurant-card .dish{
+    font-size:.78rem;
+    font-weight:700;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--brick);
+    margin-bottom:4px;
+  }
+  .restaurant-card h3{ font-size:1.25rem; color:var(--maroon-deep); }
+  .restaurant-card .style{ color:var(--ink-soft); font-size:.92rem; font-weight:600; }
+  .restaurant-card p{ color:var(--ink-soft); font-size:.93rem; }
+  .restaurant-card .try-item{
+    font-size:.88rem;
+    color:var(--maroon);
+    font-weight:600;
+    margin-top:4px;
+  }
+  .restaurant-card .try-item::before{ content:"Try: "; color:var(--brick-deep); }
+
   /* ============ FESTIVAL BAND ============ */
   .festival{
     background:
@@ -757,6 +799,80 @@
         <span class="tag">Royal Palace Complex</span>
         <span class="tag">Golden Temple</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POPULAR RESTAURANTS ============ -->
+<section class="restaurants" id="food">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Newar food, khaja sets, and festival feasts</span>
+      <h2>Where to Eat in Patan</h2>
+      <p>Patan's food scene is built on Newar culinary tradition — spiced lentils, beaten rice, bara, and yomari served in courtyards and family kitchens that have been cooking for generations.</p>
+    </div>
+
+    <div class="restaurant-grid">
+
+      <article class="restaurant-card">
+        <span class="dish">Newari Home-Style</span>
+        <h3>Honacha</h3>
+        <span class="style">Traditional Newari Restaurant</span>
+        <p>A well-known Patan institution serving authentic Newari khaja sets — beaten rice, spiced meat, lentils, pickles, and bara all on one platter. Locals and visitors alike come for the full traditional experience.</p>
+        <span class="try-item">Newari Khaja Set</span>
+      </article>
+
+      <article class="restaurant-card">
+        <span class="dish">Courtyard Dining</span>
+        <h3>Cafe Swotha</h3>
+        <span class="style">Newari Courtyard Cafe</span>
+        <p>Set in a restored Newari courtyard near Patan Durbar Square, Cafe Swotha serves traditional food alongside coffee and modern dishes. A calm place to sit above the square and watch the city.</p>
+        <span class="try-item">Bara with Egg</span>
+      </article>
+
+      <article class="restaurant-card">
+        <span class="dish">Heritage Cafe</span>
+        <h3>Dhokaima Cafe</h3>
+        <span class="style">Rooftop Dining</span>
+        <p>Perched above the old city with rooftop views toward the temples, Dhokaima serves Newari and Nepali dishes, good coffee, and a solid range of vegetarian options in a relaxed setting.</p>
+        <span class="try-item">Sel Roti and Chai</span>
+      </article>
+
+      <article class="restaurant-card">
+        <span class="dish">Local Favourite</span>
+        <h3>Yala Cafe</h3>
+        <span class="style">Casual Newari Cafe</span>
+        <p>A favourite with locals for a casual meal near the south side of the square. Yala Cafe serves simple, well-prepared Newari staples — good for a quick, affordable, and genuine lunch.</p>
+        <span class="try-item">Choila and Aloo Tama</span>
+      </article>
+
+      <article class="restaurant-card">
+        <span class="dish">Newari Fine Dining</span>
+        <h3>Newa Chen</h3>
+        <span class="style">Traditional Newari Restaurant</span>
+        <p>Known for a refined approach to Newari cuisine in an elegant setting, Newa Chen is a good choice for a longer meal with family or guests. The food is traditional, the presentation careful.</p>
+        <span class="try-item">Samay Baji Platter</span>
+      </article>
+
+      <article class="restaurant-card">
+        <span class="dish">Museum Courtyard</span>
+        <h3>Patan Museum Cafe</h3>
+        <span class="style">Cafe and Courtyard</span>
+        <p>Inside the Patan Museum courtyard, this cafe is a peaceful stop after walking through the exhibits. Light meals, good coffee, and a setting surrounded by carved wood and restored palace walls.</p>
+        <span class="try-item">Lassi and Sandwich</span>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CULTURE SPOTLIGHT ============ -->
+<section id="culture">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Crafts, workshops, and living tradition</span>
+      <h2>Culture That Never Stopped</h2>
+      <p>In Patan, culture is not performed for visitors. Bronze casting, woodcarving, mask-making, and pottery continue in neighbourhood workshops the same way they did centuries ago — and they are open to anyone who walks in.</p>
     </div>
   </div>
 </section>

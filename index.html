@@ -297,6 +297,56 @@
   /* ============ CATEGORY CARDS (windows) ============ */
   .categories{ background:var(--surface); }
 
+  .places-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+  }
+  @media (max-width:900px){ .places-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:600px){ .places-grid{ grid-template-columns:1fr; } }
+  .place-card{
+    position:relative;
+    background:var(--parchment);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .place-card:hover, .place-card:focus-within{
+    transform:translateY(-6px);
+    box-shadow:0 18px 30px -18px rgba(36,26,20,.35);
+    border-color:var(--gold);
+  }
+  .place-card .card-img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-bottom:1px solid var(--line);
+  }
+  .place-card .card-body{ padding:24px 22px 28px; display:grid; gap:10px; }
+  .place-card .card-num{
+    font-family:var(--font-display);
+    font-size:1.6rem;
+    color:var(--gold);
+    line-height:1;
+    margin-bottom:2px;
+  }
+  .place-card h3{ font-size:1.3rem; color:var(--maroon-deep); }
+  .place-card p{ color:var(--ink-soft); font-size:.95rem; }
+  .place-card .meta{
+    display:inline-block;
+    font-size:.78rem;
+    font-weight:700;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--brick);
+    border:1px solid var(--brick);
+    border-radius:999px;
+    padding:4px 12px;
+    justify-self:start;
+    margin-top:4px;
+  }
+
   /* ============ HISTORY TIMELINE ============ */
   .history{ background:var(--surface); }
   .timeline{
@@ -601,59 +651,75 @@
   </div>
 </section>
 
-<!-- ============ CATEGORY CARDS ============ -->
-<section class="categories">
+<!-- ============ PLACES TO VISIT ============ -->
+<section class="categories" id="places">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Three ways to see the city</span>
-      <h2>Wherever you start, Patan meets you halfway</h2>
-      <p>A square you can wander for a week, a kitchen tradition older than most nations, and festivals that treat the whole city as a stage.</p>
+      <span class="eyebrow">Temples, palaces, courtyards, and courtyards behind courtyards</span>
+      <h2>Places to Visit</h2>
+      <p>Patan's monuments are not isolated attractions — they are woven into a city you walk through, eat in, and live around.</p>
     </div>
 
-    <div class="card-grid">
+    <div class="places-grid">
 
-      <article class="card" id="places">
-        <svg class="frame" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M32 6 C20 6 12 18 12 30 V56 H52 V30 C52 18 44 6 32 6Z" stroke="#a8462e" stroke-width="2.2"/>
-          <line x1="32" y1="10" x2="32" y2="56" stroke="#a8462e" stroke-width="1.4"/>
-          <line x1="16" y1="30" x2="48" y2="30" stroke="#a8462e" stroke-width="1.4"/>
-          <line x1="20" y1="18" x2="44" y2="18" stroke="#a8462e" stroke-width="1.2"/>
-          <line x1="16" y1="42" x2="48" y2="42" stroke="#a8462e" stroke-width="1.2"/>
-        </svg>
-        <h3>Places to Visit</h3>
-        <p>Durbar Square, ancient stupas, hidden courtyards, and stone water spouts that have run for centuries — wander the city's living museum.</p>
-        <a href="#" class="go">Explore places
-          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#7c3220" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
+      <article class="place-card">
+        <img class="card-img" src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=600&h=400&fit=crop&q=80" alt="Patan Durbar Square with temples and stone courtyards" loading="lazy">
+        <div class="card-body">
+          <span class="card-num">01</span>
+          <h3>Patan Durbar Square</h3>
+          <p>The royal palace complex and its surrounding temples form one of the most concentrated historic squares in Asia. Stone courtyards, carved windows, and temple facades open onto daily life — laundry lines, schoolchildren, and flower sellers.</p>
+          <span class="meta">UNESCO Heritage Site</span>
+        </div>
       </article>
 
-      <article class="card" id="food">
-        <svg class="frame" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M14 26 C14 40 22 50 32 50 C42 50 50 40 50 26" stroke="#a8462e" stroke-width="2.2"/>
-          <path d="M14 26 H50" stroke="#a8462e" stroke-width="2.2"/>
-          <path d="M24 26 V14 M32 26 V10 M40 26 V14" stroke="#a8462e" stroke-width="1.6" stroke-linecap="round"/>
-        </svg>
-        <h3>Food &amp; Where to Eat</h3>
-        <p>Yomari, bara, and a full Newari khaja set — taste a culinary tradition that turns every festival into a feast.</p>
-        <a href="#" class="go">See where to eat
-          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#7c3220" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
+      <article class="place-card">
+        <img class="card-img" src="https://images.unsplash.com/photo-1609766857041-ed402ea8069a?w=600&h=400&fit=crop&q=80" alt="Krishna Mandir stone shikhara temple" loading="lazy">
+        <div class="card-body">
+          <span class="card-num">02</span>
+          <h3>Krishna Mandir</h3>
+          <p>Built entirely of stone in the 17th century, Krishna Mandir is one of the few shikhara-style temples in Nepal. Its carved friezes depict scenes from the Mahabharata and Ramayana. A generation of stonemasons worked on it before it was finished.</p>
+          <span class="meta">Stone Temple</span>
+        </div>
       </article>
 
-      <article class="card" id="culture">
-        <svg class="frame" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <circle cx="32" cy="32" r="20" stroke="#a8462e" stroke-width="2.2"/>
-          <circle cx="32" cy="32" r="4" stroke="#a8462e" stroke-width="2"/>
-          <line x1="32" y1="12" x2="32" y2="20" stroke="#a8462e" stroke-width="1.6"/>
-          <line x1="32" y1="44" x2="32" y2="52" stroke="#a8462e" stroke-width="1.6"/>
-          <line x1="12" y1="32" x2="20" y2="32" stroke="#a8462e" stroke-width="1.6"/>
-          <line x1="44" y1="32" x2="52" y2="32" stroke="#a8462e" stroke-width="1.6"/>
-        </svg>
-        <h3>Culture &amp; Events</h3>
-        <p>Rato Machindranath, mask dances, and metalcraft workshops — culture here isn't performed for visitors, it never stopped.</p>
-        <a href="#" class="go">See what's on
-          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#7c3220" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
+      <article class="place-card">
+        <img class="card-img" src="https://images.unsplash.com/photo-1583320015053-5a0dc4310de3?w=600&h=400&fit=crop&q=80" alt="Patan Museum interior and Newari art" loading="lazy">
+        <div class="card-body">
+          <span class="card-num">03</span>
+          <h3>Patan Museum</h3>
+          <p>Housed in the old royal palace, the museum displays bronze, stone, and wood sculptures from the Malla period. It is widely regarded as one of the finest museums of South Asian religious art, set in a restored courtyard.</p>
+          <span class="meta">Museum</span>
+        </div>
+      </article>
+
+      <article class="place-card">
+        <img class="card-img" src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=600&h=400&fit=crop&q=80" alt="Golden Temple courtyard with gilded roof" loading="lazy">
+        <div class="card-body">
+          <span class="card-num">04</span>
+          <h3>Golden Temple</h3>
+          <p>Hiranya Varna Mahavihar, known as the Golden Temple, is a Buddhist monastery in the heart of Patan with a gilded roof and detailed metalwork. Monks and neighbours share the courtyard — a working religious space, not a museum.</p>
+          <span class="meta">Buddhist Monastery</span>
+        </div>
+      </article>
+
+      <article class="place-card">
+        <img class="card-img" src="https://images.unsplash.com/photo-1571401835393-8c5f35328320?w=600&h=400&fit=crop&q=80" alt="Mahaboudha terracotta temple in Patan" loading="lazy">
+        <div class="card-body">
+          <span class="card-num">05</span>
+          <h3>Mahaboudha Temple</h3>
+          <p>Built with thousands of terracotta tiles inscribed with images of Buddha, Mahaboudha's form echoes North Indian temple design. Damaged in the 1934 and 2015 earthquakes, it has been rebuilt each time — a marker of Patan's approach to heritage as a living craft.</p>
+          <span class="meta">Terracotta Temple</span>
+        </div>
+      </article>
+
+      <article class="place-card">
+        <img class="card-img" src="https://images.unsplash.com/photo-1569982175971-d92b01cf8694?w=600&h=400&fit=crop&q=80" alt="Ashoka Stupa in Patan" loading="lazy">
+        <div class="card-body">
+          <span class="card-num">06</span>
+          <h3>Ashoka Stupas</h3>
+          <p>Four ancient stupas stand at the cardinal points of Patan — said to have been built by Emperor Ashoka in the 3rd century BC. They remain Buddhist pilgrimage sites and anchor the city's sacred geography.</p>
+          <span class="meta">Stupa</span>
+        </div>
       </article>
 
     </div>

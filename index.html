@@ -545,6 +545,81 @@
   .festival p{ color:#e7d9b8; max-width:56ch; margin-bottom:12px; }
   .festival .btn-ghost{ margin-top:10px; }
 
+  /* ============ FESTIVE CALENDAR ============ */
+  .festival-calendar{ background:var(--parchment); }
+  .festival-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:24px;
+  }
+  @media (max-width:800px){ .festival-grid{ grid-template-columns:1fr; } }
+  .festival-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:28px 24px;
+    display:grid;
+    gap:8px;
+    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .festival-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 24px -12px rgba(36,26,20,.25);
+    border-color:var(--gold);
+  }
+  .festival-card .month-pill{
+    display:inline-block;
+    font-size:.75rem;
+    font-weight:700;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--maroon);
+    background:rgba(110,20,35,.08);
+    padding:4px 12px;
+    border-radius:999px;
+    justify-self:start;
+  }
+  .festival-card h3{ font-size:1.2rem; color:var(--maroon-deep); }
+  .festival-card p{ color:var(--ink-soft); font-size:.93rem; }
+  .festival-card .note{ font-size:.85rem; color:var(--brick-deep); font-weight:600; margin-top:4px; }
+
+  /* ============ PHOTO GALLERY ============ */
+  .gallery{ background:var(--surface); }
+  .photo-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+  @media (max-width:900px){ .photo-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:600px){ .photo-grid{ grid-template-columns:1fr; } }
+  .photo-card{
+    position:relative;
+    border-radius:var(--radius);
+    overflow:hidden;
+    background:var(--parchment);
+    border:1px solid var(--line);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .photo-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 16px 28px -14px rgba(36,26,20,.3);
+  }
+  .photo-card img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+    display:block;
+  }
+  .photo-card .photo-caption{ padding:16px 18px; }
+  .photo-card .photo-caption h4{
+    font-family:var(--font-display);
+    font-size:1.05rem;
+    color:var(--maroon-deep);
+    margin-bottom:4px;
+  }
+  .photo-card .photo-caption span{ font-size:.85rem; color:var(--ink-soft); }
+  .photo-card img[loading="lazy"]{ background:linear-gradient(135deg, var(--parchment) 0%, #e8dcc0 100%); }
+
   /* ============ FOOTER ============ */
   footer{
     background:var(--ink);
@@ -553,12 +628,13 @@
   }
   .footer-grid{
     display:grid;
-    grid-template-columns:1.4fr 1fr 1fr;
-    gap:48px;
+    grid-template-columns:1.4fr 1fr 1fr 1fr;
+    gap:40px;
     padding-bottom:44px;
     border-bottom:1px solid rgba(232,200,120,.18);
   }
-  @media (max-width:760px){ .footer-grid{ grid-template-columns:1fr; gap:32px; } }
+  @media (max-width:900px){ .footer-grid{ grid-template-columns:1fr 1fr; gap:32px; } }
+  @media (max-width:600px){ .footer-grid{ grid-template-columns:1fr; gap:28px; } }
 
   .footer-brand{ display:flex; align-items:center; gap:12px; font-family:var(--font-display); font-size:1.3rem; color:var(--gold-light); margin-bottom:14px; }
   .footer-brand svg{ width:30px; height:30px; }
@@ -580,6 +656,11 @@
     display:flex; justify-content:space-between; align-items:center;
     padding-top:24px; flex-wrap:wrap; gap:12px;
     font-size:.82rem; color:#8a7c60;
+  }
+  .footer-note{
+    font-size:.8rem;
+    color:#7a6c52;
+    max-width:50ch;
   }
 </style>
 </head>
@@ -900,6 +981,140 @@
   </div>
 </section>
 
+<!-- ============ FESTIVE CALENDAR ============ -->
+<section class="festival-calendar" id="calendar">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Festivals through the Nepali year</span>
+      <h2>Festive Calendar</h2>
+      <p>Patan celebrates more festivals per year than most cities have public holidays. Dates follow the Nepali lunar calendar and shift each year, but the sequence stays the same.</p>
+    </div>
+
+    <div class="festival-grid">
+
+      <article class="festival-card">
+        <span class="month-pill">Chaitra &ndash; Jestha (Mar &ndash; Jun)</span>
+        <h3>Rato Machindranath Jatra</h3>
+        <p>One of the longest chariot festivals in South Asia. A towering wooden chariot is built by hand in Pulchowk and pulled through Patan's streets over several weeks. The entire city joins in — rope in hand.</p>
+        <span class="note">Dates vary each year, lasting several weeks.</span>
+      </article>
+
+      <article class="festival-card">
+        <span class="month-pill">Chaitra &ndash; Baisakh (Mar &ndash; Apr)</span>
+        <h3>Bisket Jatra Season</h3>
+        <p>The Nepali New Year brings the erection of a ceremonial pole in Bhaktapur and chariot processions across the valley, including parts of Patan. A dramatic, noisy, community-wide celebration.</p>
+        <span class="note">Marks the Nepali New Year.</span>
+      </article>
+
+      <article class="festival-card">
+        <span class="month-pill">Shravan (Jul &ndash; Aug)</span>
+        <h3>Janai Purnima</h3>
+        <p>A sacred thread-changing festival for Hindu men, followed by a day of special lentil soup (kwati) across the valley. In Patan, the festival sits alongside Buddhist observances, reflecting the city's mixed religious life.</p>
+        <span class="note">Lunar date shifts each year.</span>
+      </article>
+
+      <article class="festival-card">
+        <span class="month-pill">Shravan &ndash; Bhadra (Aug &ndash; Sep)</span>
+        <h3>Gai Jatra</h3>
+        <p>A festival of humour and remembrance, marking those who died in the past year. Families send a cow (or a child dressed as one) through the streets, and the city fills with satire, performance, and laughter.</p>
+        <span class="note">Particularly lively in Patan.</span>
+      </article>
+
+      <article class="festival-card">
+        <span class="month-pill">Bhadra &ndash; Ashwin (Aug &ndash; Sep)</span>
+        <h3>Indra Jatra Season</h3>
+        <p>Though most associated with Kathmandu, the festival's tantric and chariot traditions also appear in Patan. Mask dances and processions mark the honouring of Indra and the dead.</p>
+        <span class="note">Linked to wider valley celebrations.</span>
+      </article>
+
+      <article class="festival-card">
+        <span class="month-pill">Ashwin &ndash; Kartik (Sep &ndash; Oct)</span>
+        <h3>Dashain</h3>
+        <p>Nepal's longest and most important festival. Families return home, elders bless children with tika, and kites fill the sky. In Patan, the festival adds extra life to already busy courtyards and family homes.</p>
+        <span class="note">15 days, the biggest national holiday.</span>
+      </article>
+
+      <article class="festival-card">
+        <span class="month-pill">Kartik (Oct &ndash; Nov)</span>
+        <h3>Tihar / Deepawali</h3>
+        <p>The festival of lights. Lamps line every doorstep, dogs are garlanded, siblings celebrate each other, and buildings glow with rows of oil lamps. Patan's old city, with its dark courtyards and carved windows, is especially atmospheric during Tihar.</p>
+        <span class="note">Five nights, city-wide illumination.</span>
+      </article>
+
+      <article class="festival-card">
+        <span class="month-pill">Mangsir (Nov &ndash; Dec)</span>
+        <h3>Yomari Punhi</h3>
+        <p>A Newari harvest festival centred on yomari — a steamed rice flour dumpling filled with molasses and sesame. The festival marks the end of the harvest season and is particularly celebrated in Patan's Newar households.</p>
+        <span class="note">Unique to Newar culture.</span>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ PHOTO GALLERY ============ -->
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Recent festivals in photos</span>
+      <h2>Festival Gallery</h2>
+      <p>Festivals in Patan are not museum exhibits. They are streets full of people, chariots, masks, lamps, and food — happening the same way they have for generations.</p>
+    </div>
+
+    <div class="photo-grid">
+
+      <article class="photo-card">
+        <img src="https://images.unsplash.com/photo-1574169208507-84376144848b?w=600&h=400&fit=crop&q=80" alt="Rato Machindranath chariot procession in Patan" loading="lazy">
+        <div class="photo-caption">
+          <h4>Rato Machindranath Jatra</h4>
+          <span>The towering chariot pulled through Patan's streets during the annual monsoon festival.</span>
+        </div>
+      </article>
+
+      <article class="photo-card">
+        <img src="https://images.unsplash.com/photo-1532664189809-02133fee698d?w=600&h=400&fit=crop&q=80" alt="Tihar festival lights and oil lamps in Nepal" loading="lazy">
+        <div class="photo-caption">
+          <h4>Tihar / Deepawali</h4>
+          <span>Oil lamps line courtyards and doorways across Patan during the five nights of lights.</span>
+        </div>
+      </article>
+
+      <article class="photo-card">
+        <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&h=400&fit=crop&q=80" alt="Traditional Newari festival food and offerings" loading="lazy">
+        <div class="photo-caption">
+          <h4>Yomari Punhi</h4>
+          <span>Newari harvest festival celebrating with yomari — steamed rice flour dumplings filled with molasses.</span>
+        </div>
+      </article>
+
+      <article class="photo-card">
+        <img src="https://images.unsplash.com/photo-1574169208507-84376144848b?w=600&h=400&fit=crop&q=80&crop=top" alt="Patan Durbar Square during a festival gathering" loading="lazy">
+        <div class="photo-caption">
+          <h4>Durbar Square Gatherings</h4>
+          <span>Major festivals draw the entire city to the square, where temples become stages for processions.</span>
+        </div>
+      </article>
+
+      <article class="photo-card">
+        <img src="https://images.unsplash.com/photo-1569982175971-d92b01cf8694?w=600&h=400&fit=crop&q=80" alt="Dashain festival kites in the Patan sky" loading="lazy">
+        <div class="photo-caption">
+          <h4>Dashain Kites</h4>
+          <span>Kites fill the sky during Dashain, Nepal's longest festival, as families gather and elders offer blessings.</span>
+        </div>
+      </article>
+
+      <article class="photo-card">
+        <img src="https://images.unsplash.com/photo-1583320015053-5a0dc4310de3?w=600&h=400&fit=crop&q=80" alt="Traditional mask dance during Indra Jatra in Patan" loading="lazy">
+        <div class="photo-caption">
+          <h4>Mask Dances</h4>
+          <span>Lakhey and tantric mask dances appear during Indra Jatra season and other valley-wide celebrations.</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="wrap">
@@ -915,14 +1130,24 @@
           Explore Patan
         </div>
         <p class="desc">A guide to Nepal's oldest royal city — its squares, its kitchens, and the festivals that still fill its streets.</p>
+        <p class="footer-note" style="margin-top:14px;">Festival dates follow the Nepali lunar calendar and shift each year. Approximate English months are given as a guide.</p>
       </div>
 
       <div class="col">
         <h4>Explore</h4>
         <ul>
+          <li><a href="#history">History</a></li>
           <li><a href="#places">Places to Visit</a></li>
           <li><a href="#food">Food &amp; Where to Eat</a></li>
-          <li><a href="#culture">Culture &amp; Events</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h4>Festivals</h4>
+        <ul>
+          <li><a href="#calendar">Festive Calendar</a></li>
+          <li><a href="#gallery">Festival Gallery</a></li>
+          <li><a href="#top">Rato Machindranath Jatra</a></li>
         </ul>
       </div>
 
@@ -937,7 +1162,7 @@
     </div>
 
     <div class="footer-bottom">
-      <span>Explore Patan — a template for a city that doesn't need one.</span>
+      <span>Explore Patan — a city that never stopped building.</span>
       <span>Lalitpur, Nepal</span>
     </div>
   </div>

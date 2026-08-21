@@ -34,7 +34,7 @@
   }
 
   *,*::before,*::after{ box-sizing:border-box; }
-  html{ scroll-behavior:smooth; }
+  html{ scroll-behavior:smooth; scroll-padding-top:80px; }
   body{
     margin:0;
     background:var(--parchment);
@@ -91,11 +91,25 @@
   #nav-toggle{ display:none; }
 
   header{
-    position:sticky; top:0; z-index:50;
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    background:transparent;
+    border-bottom:1px solid transparent;
+    transition:background .3s ease, border-color .3s ease, backdrop-filter .3s ease;
+  }
+  header::before{
+    /* subtle top scrim so light nav stays legible over any hero image */
+    content:"";
+    position:absolute; left:0; right:0; top:0; height:140px;
+    background:linear-gradient(180deg, rgba(18,36,57,.6), transparent);
+    pointer-events:none;
+    transition:opacity .3s ease;
+  }
+  header.scrolled{
     background:rgba(244,233,207,0.92);
     backdrop-filter:blur(6px);
     border-bottom:1px solid var(--line);
   }
+  header.scrolled::before{ opacity:0; }
   .navbar{
     display:flex;
     align-items:center;
@@ -108,8 +122,10 @@
     display:flex; align-items:center; gap:12px;
     font-family:var(--font-display);
     font-size:1.35rem;
-    color:var(--maroon-deep);
+    color:#f4e9cf;
+    transition:color .3s ease;
   }
+  header.scrolled .brand{ color:var(--maroon-deep); }
   .brand svg{ width:36px; height:36px; flex:none; }
 
   .nav-links{
@@ -120,10 +136,12 @@
   .nav-links a{
     font-weight:600;
     font-size:.98rem;
-    color:var(--ink-soft);
+    color:#eaddbe;
     position:relative;
     padding:4px 2px;
+    transition:color .3s ease;
   }
+  header.scrolled .nav-links a{ color:var(--ink-soft); }
   .nav-links a::after{
     content:"";
     position:absolute; left:0; right:0; bottom:-4px;
@@ -155,9 +173,11 @@
     padding:8px;
   }
   .hamburger span{
-    width:24px; height:2px; background:var(--ink);
+    width:24px; height:2px; background:#f4e9cf;
     display:block;
+    transition:background .3s ease;
   }
+  header.scrolled .hamburger span{ background:var(--ink); }
 
   @media (max-width:860px){
     .nav-links{
@@ -172,7 +192,8 @@
       overflow:hidden;
       transition:max-height .3s ease;
     }
-    .nav-links a{ padding:16px 28px; width:100%; border-bottom:1px solid var(--line); }
+    .nav-links a,
+    header.scrolled .nav-links a{ padding:16px 28px; width:100%; border-bottom:1px solid var(--line); color:var(--ink-soft); }
     .nav-links a::after{ display:none; }
     .nav-cta{ margin:16px 28px; text-align:center; }
     .hamburger{ display:flex; }
@@ -1167,6 +1188,18 @@
     </div>
   </div>
 </footer>
+
+<!-- ============ SCRIPTS ============ -->
+<script>
+  (function () {
+    var header = document.querySelector('header');
+    function onScroll() {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    }
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+</script>
 
 </body>
 </html>

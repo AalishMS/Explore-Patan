@@ -203,36 +203,64 @@
   /* ============ HERO ============ */
   .hero{
     position:relative;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
     overflow:hidden;
-    background:
-      radial-gradient(circle at 15% 20%, rgba(232,200,120,.25), transparent 40%),
-      radial-gradient(circle at 85% 10%, rgba(232,200,120,.15), transparent 35%),
-      linear-gradient(180deg, var(--indigo-deep) 0%, var(--indigo) 55%, var(--maroon-deep) 100%);
     color:var(--parchment);
-    padding:100px 0 0;
   }
-  .hero .wrap{
+  .hero-media{ position:absolute; inset:0; z-index:0; }
+  .hero-media img{
+    width:100%; height:100%;
+    object-fit:cover;
+    object-position:center 45%;
+    animation:kenburns 16s ease-out both;
+  }
+  .hero-scrim{
+    position:absolute; inset:0;
+    background:
+      linear-gradient(90deg, rgba(18,36,57,.9) 0%, rgba(18,36,57,.55) 45%, rgba(18,36,57,.1) 100%),
+      linear-gradient(180deg, rgba(18,36,57,.45) 0%, rgba(18,36,57,0) 28%, rgba(74,12,23,.7) 100%);
+  }
+  @keyframes kenburns{
+    from{ transform:scale(1.08); }
+    to{ transform:scale(1); }
+  }
+
+  .hero-inner{
     position:relative;
     z-index:2;
-    display:grid;
-    gap:24px;
-    padding-bottom:60px;
+    flex:1 1 auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:22px;
+    padding-top:120px;
+    padding-bottom:52px;
   }
   .hero .eyebrow{ color:var(--gold-light); }
   .hero .eyebrow::before{ background:var(--gold-light); }
 
   .hero h1{
-    font-size:clamp(3rem, 8vw, 6.2rem);
+    font-size:clamp(3rem, 8vw, 6.4rem);
     line-height:.95;
     color:#fdf7e9;
-    max-width:14ch;
-    text-shadow:0 4px 24px rgba(0,0,0,.25);
+    max-width:15ch;
+    text-shadow:0 4px 30px rgba(0,0,0,.45);
     animation:rise .8s ease both;
   }
+  .hero h1 .script{
+    display:block;
+    font-size:clamp(1.1rem, 2.4vw, 1.7rem);
+    color:var(--gold-light);
+    margin-bottom:.4em;
+    text-shadow:0 2px 14px rgba(0,0,0,.5);
+  }
   .hero .sub{
-    max-width:52ch;
-    font-size:1.15rem;
-    color:#e7d9b8;
+    max-width:54ch;
+    font-size:1.16rem;
+    color:#f1e7d1;
+    text-shadow:0 1px 14px rgba(0,0,0,.4);
     animation:rise .8s .1s ease both;
   }
   .hero .cta-row{
@@ -290,13 +318,6 @@
     .facts-strip{ grid-template-columns:1fr; }
     .facts-strip div{ border-left:none; border-top:1px solid rgba(232,200,120,.2); }
     .facts-strip div:first-child{ border-top:none; }
-  }
-
-  /* skyline silhouette */
-  .skyline{
-    position:absolute; left:0; right:0; bottom:-2px;
-    width:100%; z-index:1;
-    line-height:0;
   }
 
   /* ============ SECTION SHELL ============ */
@@ -720,10 +741,16 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
-  <div class="wrap">
-    <span class="eyebrow">Lalitpur · Nepal · City of Fine Arts</span>
-    <h1>Explore Patan</h1>
-    <p class="sub">A city where temples rise from courtyards, Newar kitchens have turned festivals into feasts for centuries, and the streets still carry the sound of bells, chariots, and stone being shaped by hand.</p>
+  <div class="hero-media">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Patan_durbar_square.jpg/1280px-Patan_durbar_square.jpg"
+         alt="Pagoda temples and the golden pillar statue at Patan Durbar Square">
+    <div class="hero-scrim"></div>
+  </div>
+
+  <div class="wrap hero-inner">
+    <span class="eyebrow">Kathmandu Valley · Nepal · City of Fine Arts</span>
+    <h1><span class="script">ललितपुर · यल</span>Explore Patan</h1>
+    <p class="sub">A living museum of temple courtyards, Newar kitchens, and streets that still carry the sound of bells, chariots, and stone shaped by hand. Start anywhere — the whole city is a doorway.</p>
     <div class="cta-row">
       <a href="#places" class="btn btn-primary">
         Discover Places
@@ -738,12 +765,6 @@
     <div><strong>4 Ashoka Stupas</strong><span>still guard the four corners of the city</span></div>
     <div><strong>Malla-Era Masterpiece</strong><span>three centuries of kings, artisans, and stone temples</span></div>
   </div>
-
-  <!-- pagoda skyline silhouette -->
-  <svg class="skyline" viewBox="0 0 1440 180" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M0 180 L0 130 L60 130 L60 110 L100 110 L100 90 L140 90 L160 60 L180 90 L220 90 L220 110 L260 110 L260 130 L340 130 L340 100 L380 100 L400 70 L420 100 L460 100 L460 130 L560 130 L560 105 L610 105 L640 75 L670 105 L720 105 L720 130 L820 130 L820 100 L870 100 L900 65 L930 100 L980 100 L980 130 L1080 130 L1080 108 L1130 108 L1160 78 L1190 108 L1240 108 L1240 130 L1340 130 L1340 115 L1380 115 L1400 95 L1420 115 L1440 115 L1440 180 Z" fill="#122439" opacity="0.9"/>
-    <path d="M0 180 L0 150 L90 150 L90 130 L150 130 L180 105 L210 130 L270 130 L270 150 L400 150 L400 128 L450 128 L480 100 L510 128 L560 128 L560 150 L700 150 L700 132 L760 132 L790 108 L820 132 L880 132 L880 150 L1020 150 L1020 126 L1080 126 L1110 98 L1140 126 L1200 126 L1200 150 L1440 150 L1440 180 Z" fill="#4a0c17" opacity="0.85"/>
-  </svg>
 </section>
 
 <!-- ============ HISTORY TIMELINE ============ -->

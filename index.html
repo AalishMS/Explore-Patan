@@ -420,8 +420,19 @@
     border-radius:999px;
     padding:4px 12px;
     justify-self:start;
-    margin-top:4px;
-  }
+     margin-top:4px;
+   }
+   .map-link{
+     display:inline-flex;
+     align-items:center;
+     gap:7px;
+     margin-top:6px;
+     color:var(--indigo);
+     font-size:.88rem;
+     font-weight:700;
+   }
+   .map-link:hover{ color:var(--brick-deep); text-decoration:underline; }
+   .map-link svg{ width:15px; height:15px; flex:none; }
 
   /* ============ HISTORY TIMELINE ============ */
   .history{ background:var(--surface); }
@@ -641,8 +652,15 @@
   .festival-card:hover{
     transform:translateY(-3px);
     box-shadow:0 12px 24px -12px rgba(36,26,20,.25);
-    border-color:var(--gold);
-  }
+     border-color:var(--gold);
+   }
+   .festival-card img{
+     width:calc(100% + 48px);
+     height:180px;
+     margin:-28px -24px 10px;
+     object-fit:cover;
+     border-bottom:1px solid var(--line);
+   }
   .festival-card .month-pill{
     display:inline-block;
     font-size:.75rem;
@@ -887,62 +905,68 @@
     <div class="places-grid">
 
       <article class="place-card">
-        <img class="card-img" src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=600&h=400&fit=crop&q=80" alt="Patan Durbar Square with temples and stone courtyards" loading="lazy">
+        <img class="card-img" src="images/places/patan-durbar-square.jpg" width="900" height="600" alt="Patan Durbar Square with temples and stone courtyards" loading="lazy">
         <div class="card-body">
           <span class="card-num">01</span>
           <h3>Patan Durbar Square</h3>
           <p>The royal palace complex and its surrounding temples form one of the most concentrated historic squares in Asia. Stone courtyards, carved windows, and temple facades open onto daily life — laundry lines, schoolchildren, and flower sellers.</p>
           <span class="meta">UNESCO Heritage Site</span>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Patan+Durbar+Square+Lalitpur+Nepal" target="_blank" rel="noopener noreferrer">View on Google Maps <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </article>
 
       <article class="place-card">
-        <img class="card-img" src="https://images.unsplash.com/photo-1609766857041-ed402ea8069a?w=600&h=400&fit=crop&q=80" alt="Krishna Mandir stone shikhara temple" loading="lazy">
+        <img class="card-img" src="images/places/krishna-mandir.jpg" width="900" height="600" alt="Krishna Mandir stone shikhara temple" loading="lazy">
         <div class="card-body">
           <span class="card-num">02</span>
           <h3>Krishna Mandir</h3>
           <p>Built entirely of stone in the 17th century, Krishna Mandir is one of the few shikhara-style temples in Nepal. Its carved friezes depict scenes from the Mahabharata and Ramayana. A generation of stonemasons worked on it before it was finished.</p>
           <span class="meta">Stone Temple</span>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Krishna+Mandir+Patan+Lalitpur+Nepal" target="_blank" rel="noopener noreferrer">View on Google Maps <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </article>
 
       <article class="place-card">
-        <img class="card-img" src="https://images.unsplash.com/photo-1583320015053-5a0dc4310de3?w=600&h=400&fit=crop&q=80" alt="Patan Museum interior and Newari art" loading="lazy">
+        <img class="card-img" src="images/places/patan-museum.jpg" width="900" height="600" alt="Patan Museum courtyard and palace architecture" loading="lazy">
         <div class="card-body">
           <span class="card-num">03</span>
           <h3>Patan Museum</h3>
           <p>Housed in the old royal palace, the museum displays bronze, stone, and wood sculptures from the Malla period. It is widely regarded as one of the finest museums of South Asian religious art, set in a restored courtyard.</p>
           <span class="meta">Museum</span>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Patan+Museum+Lalitpur+Nepal" target="_blank" rel="noopener noreferrer">View on Google Maps <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </article>
 
       <article class="place-card">
-        <img class="card-img" src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=600&h=400&fit=crop&q=80" alt="Golden Temple courtyard with gilded roof" loading="lazy">
+        <img class="card-img" src="https://upload.wikimedia.org/wikipedia/commons/9/93/Golden_Temple_%28Hiranya_Varna_Mahavihar%29.jpg" width="900" height="600" alt="Golden Temple courtyard with gilded roof" loading="lazy">
         <div class="card-body">
           <span class="card-num">04</span>
           <h3>Golden Temple</h3>
           <p>Hiranya Varna Mahavihar, known as the Golden Temple, is a Buddhist monastery in the heart of Patan with a gilded roof and detailed metalwork. Monks and neighbours share the courtyard — a working religious space, not a museum.</p>
           <span class="meta">Buddhist Monastery</span>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Golden+Temple+Patan+Lalitpur+Nepal" target="_blank" rel="noopener noreferrer">View on Google Maps <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </article>
 
       <article class="place-card">
-        <img class="card-img" src="https://images.unsplash.com/photo-1571401835393-8c5f35328320?w=600&h=400&fit=crop&q=80" alt="Mahaboudha terracotta temple in Patan" loading="lazy">
+        <img class="card-img" src="images/places/mahaboudha.jpg" width="900" height="600" alt="Mahaboudha terracotta temple in Patan" loading="lazy">
         <div class="card-body">
           <span class="card-num">05</span>
           <h3>Mahaboudha Temple</h3>
           <p>Built with thousands of terracotta tiles inscribed with images of Buddha, Mahaboudha's form echoes North Indian temple design. Damaged in the 1934 and 2015 earthquakes, it has been rebuilt each time — a marker of Patan's approach to heritage as a living craft.</p>
           <span class="meta">Terracotta Temple</span>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Mahaboudha+Temple+Patan+Lalitpur+Nepal" target="_blank" rel="noopener noreferrer">View on Google Maps <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </article>
 
       <article class="place-card">
-        <img class="card-img" src="https://images.unsplash.com/photo-1569982175971-d92b01cf8694?w=600&h=400&fit=crop&q=80" alt="Ashoka Stupa in Patan" loading="lazy">
+        <img class="card-img" src="images/places/ashoka-stupa.jpg" width="900" height="600" alt="Ashoka Stupa in Patan" loading="lazy">
         <div class="card-body">
           <span class="card-num">06</span>
           <h3>Ashoka Stupas</h3>
           <p>Four ancient stupas stand at the cardinal points of Patan — said to have been built by Emperor Ashoka in the 3rd century BC. They remain Buddhist pilgrimage sites and anchor the city's sacred geography.</p>
           <span class="meta">Stupa</span>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Ashoka+Stupa+Patan+Lalitpur+Nepal" target="_blank" rel="noopener noreferrer">View on Google Maps <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </article>
 
@@ -1002,6 +1026,7 @@
         <span class="style">Traditional Newari Restaurant</span>
         <p>A well-known Patan institution serving authentic Newari khaja sets — beaten rice, spiced meat, lentils, pickles, and bara all on one platter. Locals and visitors alike come for the full traditional experience.</p>
         <span class="try-item">Newari Khaja Set</span>
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Honacha+Patan+Lalitpur+Nepal" target="_blank" rel="noopener noreferrer">View on Google Maps <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </article>
 
       <article class="restaurant-card">
@@ -1010,6 +1035,7 @@
         <span class="style">Newari Courtyard Cafe</span>
         <p>Set in a restored Newari courtyard near Patan Durbar Square, Cafe Swotha serves traditional food alongside coffee and modern dishes. A calm place to sit above the square and watch the city.</p>
         <span class="try-item">Bara with Egg</span>
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Cafe+Swotha+Patan+Lalitpur+Nepal" target="_blank" rel="noopener noreferrer">View on Google Maps <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </article>
 
       <article class="restaurant-card">
@@ -1018,6 +1044,7 @@
         <span class="style">Rooftop Dining</span>
         <p>Perched above the old city with rooftop views toward the temples, Dhokaima serves Newari and Nepali dishes, good coffee, and a solid range of vegetarian options in a relaxed setting.</p>
         <span class="try-item">Sel Roti and Chai</span>
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Dhokaima+Cafe+Patan+Lalitpur+Nepal" target="_blank" rel="noopener noreferrer">View on Google Maps <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </article>
 
       <article class="restaurant-card">
@@ -1026,6 +1053,7 @@
         <span class="style">Casual Newari Cafe</span>
         <p>A favourite with locals for a casual meal near the south side of the square. Yala Cafe serves simple, well-prepared Newari staples — good for a quick, affordable, and genuine lunch.</p>
         <span class="try-item">Choila and Aloo Tama</span>
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Yala+Cafe+Patan+Lalitpur+Nepal" target="_blank" rel="noopener noreferrer">View on Google Maps <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </article>
 
       <article class="restaurant-card">
@@ -1034,6 +1062,7 @@
         <span class="style">Traditional Newari Restaurant</span>
         <p>Known for a refined approach to Newari cuisine in an elegant setting, Newa Chen is a good choice for a longer meal with family or guests. The food is traditional, the presentation careful.</p>
         <span class="try-item">Samay Baji Platter</span>
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Newa+Chen+Patan+Lalitpur+Nepal" target="_blank" rel="noopener noreferrer">View on Google Maps <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </article>
 
       <article class="restaurant-card">
@@ -1042,6 +1071,7 @@
         <span class="style">Cafe and Courtyard</span>
         <p>Inside the Patan Museum courtyard, this cafe is a peaceful stop after walking through the exhibits. Light meals, good coffee, and a setting surrounded by carved wood and restored palace walls.</p>
         <span class="try-item">Lassi and Sandwich</span>
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Patan+Museum+Cafe+Lalitpur+Nepal" target="_blank" rel="noopener noreferrer">View on Google Maps <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </article>
 
     </div>
@@ -1077,7 +1107,7 @@
       <h2>Rato Machindranath Jatra</h2>
       <p>Once a year, a towering wooden chariot is built by hand in Pulchowk and pulled through Patan's streets over several weeks — one of the longest-running chariot festivals in the world, drawing the entire valley into its path.</p>
       <p>It's less an event to watch than a city to join: rope in hand, alongside neighbours who've done this for generations.</p>
-      <a href="#" class="btn btn-ghost">See the festival calendar</a>
+      <a href="#calendar" class="btn btn-ghost">See the festival calendar</a>
     </div>
   </div>
 </section>
@@ -1094,6 +1124,7 @@
     <div class="festival-grid">
 
       <article class="festival-card">
+        <img src="images/festivals/rato-machindranath.jpg" width="900" height="600" alt="Rato Machindranath chariot procession in Nepal" loading="lazy">
         <span class="month-pill">Chaitra &ndash; Jestha (Mar &ndash; Jun)</span>
         <h3>Rato Machindranath Jatra</h3>
         <p>One of the longest chariot festivals in South Asia. A towering wooden chariot is built by hand in Pulchowk and pulled through Patan's streets over several weeks. The entire city joins in — rope in hand.</p>
@@ -1101,6 +1132,7 @@
       </article>
 
       <article class="festival-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Biska_Jatra_of_Bhaktapur.jpg" width="900" height="600" alt="Bisket Jatra chariot festival in the Kathmandu Valley" loading="lazy">
         <span class="month-pill">Chaitra &ndash; Baisakh (Mar &ndash; Apr)</span>
         <h3>Bisket Jatra Season</h3>
         <p>The Nepali New Year brings the erection of a ceremonial pole in Bhaktapur and chariot processions across the valley, including parts of Patan. A dramatic, noisy, community-wide celebration.</p>
@@ -1108,6 +1140,7 @@
       </article>
 
       <article class="festival-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Janai_purnima_Festival_in_Nagarkot.jpg" width="900" height="600" alt="Janai Purnima festival gathering in Nepal" loading="lazy">
         <span class="month-pill">Shravan (Jul &ndash; Aug)</span>
         <h3>Janai Purnima</h3>
         <p>A sacred thread-changing festival for Hindu men, followed by a day of special lentil soup (kwati) across the valley. In Patan, the festival sits alongside Buddhist observances, reflecting the city's mixed religious life.</p>
@@ -1115,6 +1148,7 @@
       </article>
 
       <article class="festival-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Gai_Jatra_Kathmandu_Nepal_%285116171569%29.jpg" width="900" height="600" alt="Gai Jatra procession in Nepal" loading="lazy">
         <span class="month-pill">Shravan &ndash; Bhadra (Aug &ndash; Sep)</span>
         <h3>Gai Jatra</h3>
         <p>A festival of humour and remembrance, marking those who died in the past year. Families send a cow (or a child dressed as one) through the streets, and the city fills with satire, performance, and laughter.</p>
@@ -1122,6 +1156,7 @@
       </article>
 
       <article class="festival-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Indra_Jatra_Festival_in_Nepal.jpg" width="900" height="600" alt="Indra Jatra festival procession in Nepal" loading="lazy">
         <span class="month-pill">Bhadra &ndash; Ashwin (Aug &ndash; Sep)</span>
         <h3>Indra Jatra Season</h3>
         <p>Though most associated with Kathmandu, the festival's tantric and chariot traditions also appear in Patan. Mask dances and processions mark the honouring of Indra and the dead.</p>
@@ -1129,6 +1164,7 @@
       </article>
 
       <article class="festival-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Dashain_festival.jpg" width="900" height="600" alt="Family celebrating Dashain festival in Nepal" loading="lazy">
         <span class="month-pill">Ashwin &ndash; Kartik (Sep &ndash; Oct)</span>
         <h3>Dashain</h3>
         <p>Nepal's longest and most important festival. Families return home, elders bless children with tika, and kites fill the sky. In Patan, the festival adds extra life to already busy courtyards and family homes.</p>
@@ -1136,6 +1172,7 @@
       </article>
 
       <article class="festival-card">
+        <img src="images/festivals/tihar.jpg" width="900" height="600" alt="Traditional lamp being lit during Tihar in Nepal" loading="lazy">
         <span class="month-pill">Kartik (Oct &ndash; Nov)</span>
         <h3>Tihar / Deepawali</h3>
         <p>The festival of lights. Lamps line every doorstep, dogs are garlanded, siblings celebrate each other, and buildings glow with rows of oil lamps. Patan's old city, with its dark courtyards and carved windows, is especially atmospheric during Tihar.</p>
@@ -1143,6 +1180,7 @@
       </article>
 
       <article class="festival-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Yomari_Punhi.jpg" width="900" height="600" alt="Yomari dumplings prepared for Yomari Punhi" loading="lazy">
         <span class="month-pill">Mangsir (Nov &ndash; Dec)</span>
         <h3>Yomari Punhi</h3>
         <p>A Newari harvest festival centred on yomari — a steamed rice flour dumpling filled with molasses and sesame. The festival marks the end of the harvest season and is particularly celebrated in Patan's Newar households.</p>
@@ -1232,6 +1270,7 @@
         </div>
         <p class="desc">A guide to Nepal's oldest royal city — its squares, its kitchens, and the festivals that still fill its streets.</p>
         <p class="footer-note" style="margin-top:14px;">Festival dates follow the Nepali lunar calendar and shift each year. Approximate English months are given as a guide.</p>
+        <p class="footer-note" style="margin-top:14px;">Place and festival photography: <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>.</p>
       </div>
 
       <div class="col">

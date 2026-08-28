@@ -40,6 +40,7 @@ The project is a static city guide rather than an e-commerce store, so shopping 
 - Card images include explicit `width` and `height` attributes to reduce layout shift.
 - Important landmark images are stored in `images/places/` so the page does not depend entirely on third-party image hosts.
 - Festival assets are stored in `images/festivals/` where locally downloaded sources were available.
+- Restaurant images are stored in `images/restaurants/` with Wikimedia Commons food photography.
 - The hero image remains eager because it is the main above-the-fold visual.
 - CSS animation is disabled or reduced for users who request reduced motion.
 
@@ -61,6 +62,7 @@ The final browser check should cover 320px, 425px, 768px, 1024px, and 1440px.
 - Landmark and festival photography is sourced from [Wikimedia Commons](https://commons.wikimedia.org/).
 - Local asset sources include [Patan Durbar Square](https://commons.wikimedia.org/wiki/File:Patan_durbar_square.jpg), [Krishna Mandir](https://commons.wikimedia.org/wiki/File:Krishna_Mandir,_Lalitpur.jpg), [Patan Museum](https://commons.wikimedia.org/wiki/File:2023_-_Patan_Museum_-_Keshav_Narayan_Chowk_%26_Bidya_Mandira_-_img_0.jpg), [Golden Temple](https://commons.wikimedia.org/wiki/File:Golden_Temple_(Hiranya_Varna_Mahavihar).jpg), [Mahaboudha](https://commons.wikimedia.org/wiki/File:Mahaboudha_Sundhara_Patan_Lalitpur_Rajesh_Dhungana_(1).jpg), and [Ashok Chaitya](https://commons.wikimedia.org/wiki/File:Ashok_Chaitya_Pim_Bahal_11.jpg).
 - Festival sources include [Rato Machindranath](https://commons.wikimedia.org/wiki/File:Rato_Machindranath_Jatra.jpg), [Tihar](https://commons.wikimedia.org/wiki/File:Sister_lighting_traditional_lamp_during_Tihar_festival.jpg), [Bisket Jatra](https://commons.wikimedia.org/wiki/File:Biska_Jatra_of_Bhaktapur.jpg), [Janai Purnima](https://commons.wikimedia.org/wiki/File:Janai_purnima_Festival_in_Nagarkot.jpg), [Gai Jatra](https://commons.wikimedia.org/wiki/File:Gai_Jatra_Kathmandu_Nepal_(5116171569).jpg), [Indra Jatra](https://commons.wikimedia.org/wiki/File:Chariot_procession,_Indra_Jatra,_Kathmandu_Durbar_Square.jpg), [Dashain](https://commons.wikimedia.org/wiki/File:Dashain_festival.jpg), and [Yomari Punhi](https://commons.wikimedia.org/wiki/File:Yomari_Punhi.jpg).
+- Restaurant sources include [Khaja Set](https://commons.wikimedia.org/wiki/File:Newari_Khaja_Set_1.jpg), [Bara](https://commons.wikimedia.org/wiki/File:Bara_%E2%80%93_Traditional_Newari_Lentil_Pancake_of_Nepal.jpg), [Sel Roti and Chai](https://commons.wikimedia.org/wiki/File:Chiya_Sel_Roti.jpg), [Pork Choila](https://commons.wikimedia.org/wiki/File:Pork_Choila,_Nepali_Lunch,_La_Cocina_Food_Conference.jpg), and [Samay Baji](https://commons.wikimedia.org/wiki/File:Samay_Baji_-_Newar_Culture.jpg).
 - Map links use the Google Maps search URL format and do not require an API key.
 
 ## Git Workflow

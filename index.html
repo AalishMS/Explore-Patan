@@ -155,16 +155,21 @@
   .nav-links a:focus-visible::after{ transform:scaleX(1); }
 
   .nav-cta{
-    background:var(--maroon);
-    color:var(--gold-light) !important;
-    padding:10px 22px;
-    border-radius:var(--radius);
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    color:#fdf7e9 !important;
+    padding:7px 0 7px 14px;
     font-weight:700 !important;
-    border:1px solid var(--maroon-deep);
-    box-shadow:0 2px 0 var(--maroon-deep);
+    letter-spacing:.015em;
   }
   .nav-cta::after{ display:none; }
-  .nav-cta:hover{ background:var(--maroon-deep); }
+  .nav-cta:hover,
+  .nav-cta:focus-visible{ color:var(--gold-light) !important; }
+  .nav-cta svg{ width:15px; height:15px; transition:transform .2s ease; }
+  .nav-cta:hover svg,
+  .nav-cta:focus-visible svg{ transform:translateX(3px); }
+  header.scrolled .nav-cta{ color:var(--maroon-deep) !important; }
 
   .hamburger{
     display:none;
@@ -196,7 +201,8 @@
     .nav-links a,
     header.scrolled .nav-links a{ padding:16px 28px; width:100%; border-bottom:1px solid var(--line); color:var(--ink-soft); }
     .nav-links a::after{ display:none; }
-    .nav-cta{ margin:16px 28px; text-align:center; }
+    .nav-cta,
+    header.scrolled .nav-cta{ margin:16px 28px; padding:11px 14px; background:var(--maroon); color:var(--gold-light) !important; border-left-color:var(--gold); }
     .hamburger{ display:flex; }
     #nav-toggle:checked ~ .navbar .nav-links{ max-height:400px; }
   }
@@ -274,33 +280,43 @@
   .hero-explore{
     display:flex;
     flex-wrap:wrap;
-    gap:12px;
-    margin-top:16px;
+    align-items:stretch;
+    margin-top:18px;
+    border-top:1px solid rgba(232,200,120,.48);
+    border-bottom:1px solid rgba(232,200,120,.28);
     animation:rise .8s .3s ease both;
+  }
+  .hero-explore .route-label{
+    display:flex;
+    align-items:center;
+    padding:10px 20px 10px 0;
+    font-size:.73rem;
+    font-weight:700;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+    color:var(--gold-light);
   }
   .hero-explore a{
     display:inline-flex;
     align-items:center;
     gap:9px;
-    padding:11px 18px;
-    border:1px solid rgba(232,200,120,.45);
-    border-radius:999px;
-    background:rgba(18,36,57,.4);
-    -webkit-backdrop-filter:blur(4px);
-    backdrop-filter:blur(4px);
+    padding:10px 16px;
+    border-left:1px solid rgba(232,200,120,.28);
     color:#f4e9cf;
     font-weight:600;
     font-size:.92rem;
-    transition:transform .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
+    transition:background .2s ease, color .2s ease;
   }
   .hero-explore a:hover,
   .hero-explore a:focus-visible{
-    transform:translateY(-2px);
-    background:var(--gold);
-    border-color:var(--gold);
-    color:var(--indigo-deep);
+    background:rgba(232,200,120,.16);
+    color:var(--gold-light);
   }
   .hero-explore svg{ width:16px; height:16px; flex:none; }
+  @media (max-width:620px){
+    .hero-explore .route-label{ width:100%; padding-bottom:7px; }
+    .hero-explore a{ border-left:none; padding:10px 15px 10px 0; margin-right:15px; }
+  }
   .btn{
     display:inline-flex; align-items:center; gap:10px;
     padding:14px 28px;
@@ -417,9 +433,8 @@
     letter-spacing:.1em;
     text-transform:uppercase;
     color:var(--brick);
-    border:1px solid var(--brick);
-    border-radius:999px;
-    padding:4px 12px;
+    border-left:2px solid var(--brick);
+    padding:3px 0 3px 9px;
     justify-self:start;
      margin-top:4px;
    }
@@ -480,8 +495,8 @@
     font-size:1.1rem;
     color:var(--maroon);
     background:rgba(110,20,35,.08);
-    padding:4px 14px;
-    border-radius:999px;
+    border-left:3px solid var(--gold);
+    padding:4px 12px;
     margin-bottom:12px;
   }
   .timeline-item h3{ font-size:1.35rem; color:var(--maroon-deep); margin-bottom:8px; }
@@ -559,9 +574,9 @@
   .tag-row{ display:flex; gap:10px; flex-wrap:wrap; }
   .tag{
     font-size:.82rem; font-weight:700;
-    padding:7px 14px;
-    border:1px solid var(--gold);
-    border-radius:999px;
+    padding:6px 10px;
+    border-left:2px solid var(--gold);
+    background:rgba(200,155,60,.08);
     color:var(--brick-deep);
   }
 
@@ -677,8 +692,8 @@
     text-transform:uppercase;
     color:var(--maroon);
     background:rgba(110,20,35,.08);
-    padding:4px 12px;
-    border-radius:999px;
+    border-left:2px solid var(--gold);
+    padding:4px 10px;
     justify-self:start;
   }
   .festival-card h3{ font-size:1.2rem; color:var(--maroon-deep); }
@@ -794,7 +809,7 @@
       <a href="#food">Food</a>
       <a href="#calendar">Festivals</a>
       <a href="#gallery">Gallery</a>
-      <a href="#top" class="nav-cta">Start Exploring</a>
+      <a href="#places" class="nav-cta">Start a walk <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </nav>
   </div>
 </header>
@@ -820,6 +835,7 @@
     </div>
 
     <nav class="hero-explore" aria-label="Explore Patan by theme">
+      <span class="route-label">Choose a path</span>
       <a href="#history">
         <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.4"/><path d="M8 4.5V8l2.5 1.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
         History

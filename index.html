@@ -645,6 +645,24 @@
     border-bottom:1px solid var(--line);
   }
 
+  /* ============ LIVING CULTURE / VISITOR GUIDE ============ */
+  .culture{ background:var(--parchment); }
+  .culture-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--gold); border:1px solid var(--gold); }
+  .culture-card{ min-height:220px; padding:28px; background:var(--surface); display:grid; align-content:start; gap:10px; }
+  .culture-card .craft-mark{ font-family:var(--font-display); color:var(--gold); font-size:1.7rem; line-height:1; }
+  .culture-card h3{ font-size:1.3rem; color:var(--maroon-deep); }
+  .culture-card p{ color:var(--ink-soft); font-size:.95rem; }
+  .visitor-guide{ background:var(--indigo-deep); color:var(--parchment); }
+  .visitor-guide .wrap{ display:grid; grid-template-columns:.9fr 1.1fr; gap:64px; align-items:start; }
+  .visitor-guide .section-head{ margin:0; text-align:left; justify-items:start; }
+  .visitor-guide .section-head h2{ color:var(--gold-light); }
+  .visitor-guide .section-head p{ color:#e7d9b8; }
+  .visit-list{ border-top:1px solid rgba(232,200,120,.42); }
+  .visit-list li{ display:grid; grid-template-columns:86px 1fr; gap:20px; padding:18px 0; border-bottom:1px solid rgba(232,200,120,.28); }
+  .visit-list strong{ color:var(--gold-light); font-size:.78rem; letter-spacing:.13em; text-transform:uppercase; }
+  .visit-list span{ color:#f1e7d1; }
+  @media (max-width:900px){ .culture-grid{ grid-template-columns:1fr; } .visitor-guide .wrap{ grid-template-columns:1fr; gap:40px; } }
+
   /* ============ FESTIVAL BAND ============ */
   .festival{
     background:
@@ -788,11 +806,11 @@
   .footer-bottom{
     display:flex; justify-content:space-between; align-items:center;
     padding-top:24px; flex-wrap:wrap; gap:12px;
-    font-size:.82rem; color:#8a7c60;
+    font-size:.82rem; color:#cabf9e;
   }
   .footer-note{
     font-size:.8rem;
-    color:#7a6c52;
+    color:#cabf9e;
     max-width:50ch;
   }
 </style>
@@ -824,6 +842,7 @@
       <a href="#places">Places</a>
       <a href="#food">Food</a>
       <a href="#calendar">Festivals</a>
+      <a href="#visit">Plan Your Visit</a>
       <a href="#gallery">Gallery</a>
       <a href="#places" class="nav-cta">Start a walk <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </nav>
@@ -1134,6 +1153,40 @@
       <h2>Culture That Never Stopped</h2>
       <p>In Patan, culture is not performed for visitors. Bronze casting, woodcarving, mask-making, and pottery continue in neighbourhood workshops the same way they did centuries ago — and they are open to anyone who walks in.</p>
     </div>
+    <div class="culture-grid">
+      <article class="culture-card">
+        <span class="craft-mark" aria-hidden="true">01</span>
+        <h3>Watch the Makers</h3>
+        <p>Look into workshop courtyards with curiosity, then ask before photographing or entering. A short conversation often reveals more than a signboard.</p>
+      </article>
+      <article class="culture-card">
+        <span class="craft-mark" aria-hidden="true">02</span>
+        <h3>Follow the Courtyards</h3>
+        <p>Take the smaller lanes between the square, Kumbheshwar, and the old bahals. They are where Patan’s everyday rhythm becomes visible.</p>
+      </article>
+      <article class="culture-card">
+        <span class="craft-mark" aria-hidden="true">03</span>
+        <h3>Leave Room to Linger</h3>
+        <p>Build time for a tea stop, a temple bell, or an unexpected procession. Patan rewards an unhurried walking pace.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISITOR GUIDE ============ -->
+<section class="visitor-guide" id="visit">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" style="color:var(--gold-light)">A respectful first day</span>
+      <h2>Plan Your Walk</h2>
+      <p>Use the square as your compass, start early, and treat temples and neighbourhood courtyards as living places rather than backdrops.</p>
+    </div>
+    <ul class="visit-list">
+      <li><strong>Morning</strong><span>Begin at Patan Durbar Square while the light is soft and the museums are opening.</span></li>
+      <li><strong>Midday</strong><span>Follow the lanes to the Golden Temple and stop for a Newari lunch near Mangal Bazaar or Swotha.</span></li>
+      <li><strong>Afternoon</strong><span>Choose one slower detour: Kumbheshwar, Mahaboudha, or the Ashoka Stupas.</span></li>
+      <li><strong>Respect</strong><span>Dress modestly in sacred places, remove shoes where requested, and ask before photographing people or rituals.</span></li>
+    </ul>
   </div>
 </section>
 
@@ -1337,16 +1390,16 @@
         <ul>
           <li><a href="#calendar">Festive Calendar</a></li>
           <li><a href="#gallery">Festival Gallery</a></li>
-          <li><a href="#top">Rato Machindranath Jatra</a></li>
+          <li><a href="#calendar">Rato Machindranath Jatra</a></li>
         </ul>
       </div>
 
       <div class="col">
         <h4>City</h4>
         <ul>
-          <li><a href="#top">Patan Durbar Square</a></li>
-          <li><a href="#top">Getting Around Lalitpur</a></li>
-          <li><a href="#top">Visitor Guidelines</a></li>
+          <li><a href="#places">Patan Durbar Square</a></li>
+          <li><a href="#visit">Getting Around Lalitpur</a></li>
+          <li><a href="#visit">Visitor Guidelines</a></li>
         </ul>
       </div>
     </div>

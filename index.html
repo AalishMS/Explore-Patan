@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4e9cf">
 <title>Explore Patan — City of Fine Arts</title>
 <meta name="description" content="Explore Patan: history, Durbar Square, Newar food, festivals, temples, and living heritage in Nepal's oldest royal city.">
 <link rel="icon" href="data:,">
@@ -74,6 +75,19 @@
     outline:3px solid var(--gold);
     outline-offset:3px;
   }
+  .skip-link{
+    position:fixed;
+    z-index:100;
+    top:12px;
+    left:12px;
+    padding:10px 14px;
+    background:var(--gold-light);
+    color:var(--indigo-deep);
+    font-weight:700;
+    transform:translateY(-160%);
+    transition:transform .2s ease;
+  }
+  .skip-link:focus-visible{ transform:translateY(0); }
 
   @media (prefers-reduced-motion: reduce){
     *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
@@ -89,8 +103,6 @@
   }
 
   /* ============ HEADER / NAV ============ */
-  #nav-toggle{ display:none; }
-
   header{
     position:fixed; top:0; left:0; right:0; z-index:50;
     background:transparent;
@@ -173,10 +185,14 @@
 
   .hamburger{
     display:none;
+    align-items:center;
+    justify-content:center;
     flex-direction:column;
     gap:5px;
     cursor:pointer;
     padding:8px;
+    border:0;
+    background:transparent;
   }
   .hamburger span{
     width:24px; height:2px; background:#f4e9cf;
@@ -204,7 +220,7 @@
     .nav-cta,
     header.scrolled .nav-cta{ margin:16px 28px; padding:11px 14px; background:var(--maroon); color:var(--gold-light) !important; border-left-color:var(--gold); }
     .hamburger{ display:flex; }
-    #nav-toggle:checked ~ .navbar .nav-links{ max-height:400px; }
+    header.nav-open .nav-links{ max-height:400px; }
   }
 
   /* ============ HERO ============ */
@@ -782,10 +798,10 @@
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 <!-- ============ HEADER ============ -->
 <header>
-  <input type="checkbox" id="nav-toggle">
   <div class="navbar">
     <a href="#top" class="brand">
       <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -799,11 +815,11 @@
       Explore Patan
     </a>
 
-    <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
+    <button class="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation">
       <span></span><span></span><span></span>
-    </label>
+    </button>
 
-    <nav class="nav-links">
+    <nav class="nav-links" id="primary-navigation" aria-label="Primary navigation">
       <a href="#history">History</a>
       <a href="#places">Places</a>
       <a href="#food">Food</a>
@@ -814,10 +830,12 @@
   </div>
 </header>
 
+<main id="main-content">
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
   <div class="hero-media">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Patan_durbar_square.jpg/1280px-Patan_durbar_square.jpg"
+         width="1280" height="853" fetchpriority="high"
          alt="Pagoda temples and the golden pillar statue at Patan Durbar Square">
     <div class="hero-scrim"></div>
   </div>
@@ -1284,6 +1302,8 @@
   </div>
 </section>
 
+</main>
+
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="wrap">
@@ -1347,6 +1367,19 @@
     }
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
+
+    var menuButton = document.querySelector('.hamburger');
+    var menuLinks = document.querySelectorAll('.nav-links a');
+    menuButton.addEventListener('click', function () {
+      var isOpen = header.classList.toggle('nav-open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+    });
+    menuLinks.forEach(function (link) {
+      link.addEventListener('click', function () {
+        header.classList.remove('nav-open');
+        menuButton.setAttribute('aria-expanded', 'false');
+      });
+    });
   })();
 </script>
 

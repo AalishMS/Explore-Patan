@@ -751,7 +751,7 @@
     border:1px solid var(--line);
     transition:transform .25s ease, box-shadow .25s ease;
   }
-  .photo-card:hover{
+  .photo-card:hover, .photo-card:focus-within{
     transform:translateY(-4px);
     box-shadow:0 16px 28px -14px rgba(36,26,20,.3);
   }
@@ -762,7 +762,7 @@
     display:block;
   }
   .photo-card .photo-caption{ padding:16px 18px; }
-  .photo-card .photo-caption h4{
+  .photo-card .photo-caption h3{
     font-family:var(--font-display);
     font-size:1.05rem;
     color:var(--maroon-deep);
@@ -770,6 +770,15 @@
   }
   .photo-card .photo-caption span{ font-size:.85rem; color:var(--ink-soft); }
   .photo-card img[loading="lazy"]{ background:linear-gradient(135deg, var(--parchment) 0%, #e8dcc0 100%); }
+  .photo-trigger{ position:absolute; inset:0; border:0; background:transparent; cursor:zoom-in; }
+  .photo-trigger:focus-visible{ outline-offset:-5px; }
+  .lightbox{ width:min(92vw,1000px); max-height:90vh; padding:0; border:1px solid var(--gold); background:var(--ink); color:var(--parchment); }
+  .lightbox::backdrop{ background:rgba(18,36,57,.86); backdrop-filter:blur(4px); }
+  .lightbox figure{ margin:0; }
+  .lightbox img{ display:block; width:100%; max-height:70vh; object-fit:contain; }
+  .lightbox figcaption{ padding:14px 20px 18px; color:#e7d9b8; }
+  .lightbox-close{ position:absolute; top:10px; right:10px; width:42px; height:42px; border:1px solid var(--gold-light); background:var(--indigo-deep); color:var(--parchment); font-size:1.4rem; cursor:pointer; }
+  .lightbox-close:hover{ background:var(--maroon); }
 
   /* ============ FOOTER ============ */
   footer{
@@ -1306,54 +1315,65 @@
       <article class="photo-card">
         <img src="images/festivals/rato-machindranath.jpg" width="900" height="600" alt="Rato Machindranath chariot procession in Patan" loading="lazy">
         <div class="photo-caption">
-          <h4>Rato Machindranath Jatra</h4>
+          <h3>Rato Machindranath Jatra</h3>
           <span>The towering chariot pulled through Patan's streets during the annual monsoon festival.</span>
         </div>
+        <button class="photo-trigger" type="button" data-lightbox-src="images/festivals/rato-machindranath.jpg" data-lightbox-alt="Rato Machindranath chariot procession in Patan" data-lightbox-caption="Rato Machindranath Jatra" aria-label="Open Rato Machindranath Jatra photo"></button>
       </article>
 
       <article class="photo-card">
         <img src="images/festivals/tihar.jpg" width="900" height="600" alt="Tihar festival lights and oil lamps in Nepal" loading="lazy">
         <div class="photo-caption">
-          <h4>Tihar / Deepawali</h4>
+          <h3>Tihar / Deepawali</h3>
           <span>Oil lamps line courtyards and doorways across Patan during the five nights of lights.</span>
         </div>
+        <button class="photo-trigger" type="button" data-lightbox-src="images/festivals/tihar.jpg" data-lightbox-alt="Tihar festival lights and oil lamps in Nepal" data-lightbox-caption="Tihar / Deepawali" aria-label="Open Tihar / Deepawali photo"></button>
       </article>
 
       <article class="photo-card">
         <img src="images/festivals/yomari.jpg" width="900" height="600" alt="Traditional Newari festival food and offerings" loading="lazy">
         <div class="photo-caption">
-          <h4>Yomari Punhi</h4>
+          <h3>Yomari Punhi</h3>
           <span>Newari harvest festival celebrating with yomari — steamed rice flour dumplings filled with molasses.</span>
         </div>
+        <button class="photo-trigger" type="button" data-lightbox-src="images/festivals/yomari.jpg" data-lightbox-alt="Traditional Newari festival food and offerings" data-lightbox-caption="Yomari Punhi" aria-label="Open Yomari Punhi photo"></button>
       </article>
 
       <article class="photo-card">
         <img src="images/places/patan-durbar-square.jpg" width="900" height="600" alt="Patan Durbar Square during a festival gathering" loading="lazy">
         <div class="photo-caption">
-          <h4>Durbar Square Gatherings</h4>
+          <h3>Durbar Square Gatherings</h3>
           <span>Major festivals draw the entire city to the square, where temples become stages for processions.</span>
         </div>
+        <button class="photo-trigger" type="button" data-lightbox-src="images/places/patan-durbar-square.jpg" data-lightbox-alt="Patan Durbar Square during a festival gathering" data-lightbox-caption="Durbar Square Gatherings" aria-label="Open Durbar Square Gatherings photo"></button>
       </article>
 
       <article class="photo-card">
         <img src="images/festivals/dashain.jpg" width="900" height="600" alt="Dashain festival kites in the Patan sky" loading="lazy">
         <div class="photo-caption">
-          <h4>Dashain Kites</h4>
+          <h3>Dashain Kites</h3>
           <span>Kites fill the sky during Dashain, Nepal's longest festival, as families gather and elders offer blessings.</span>
         </div>
+        <button class="photo-trigger" type="button" data-lightbox-src="images/festivals/dashain.jpg" data-lightbox-alt="Dashain festival kites in the Patan sky" data-lightbox-caption="Dashain Kites" aria-label="Open Dashain Kites photo"></button>
       </article>
 
       <article class="photo-card">
         <img src="images/festivals/indra-jatra.jpg" width="900" height="600" alt="Traditional mask dance during Indra Jatra in Patan" loading="lazy">
         <div class="photo-caption">
-          <h4>Mask Dances</h4>
+          <h3>Mask Dances</h3>
           <span>Lakhey and tantric mask dances appear during Indra Jatra season and other valley-wide celebrations.</span>
         </div>
+        <button class="photo-trigger" type="button" data-lightbox-src="images/festivals/indra-jatra.jpg" data-lightbox-alt="Traditional mask dance during Indra Jatra in Patan" data-lightbox-caption="Mask Dances" aria-label="Open Mask Dances photo"></button>
       </article>
 
     </div>
   </div>
 </section>
+
+<dialog class="lightbox" aria-labelledby="lightbox-caption">
+  <form method="dialog"><button class="lightbox-close" aria-label="Close photo viewer">×</button></form>
+  <figure><img src="" alt=""><figcaption id="lightbox-caption"></figcaption></figure>
+</dialog>
 
 </main>
 
@@ -1432,6 +1452,21 @@
         header.classList.remove('nav-open');
         menuButton.setAttribute('aria-expanded', 'false');
       });
+    });
+
+    var lightbox = document.querySelector('.lightbox');
+    var lightboxImage = lightbox.querySelector('img');
+    var lightboxCaption = lightbox.querySelector('figcaption');
+    document.querySelectorAll('.photo-trigger').forEach(function (trigger) {
+      trigger.addEventListener('click', function () {
+        lightboxImage.src = trigger.dataset.lightboxSrc;
+        lightboxImage.alt = trigger.dataset.lightboxAlt;
+        lightboxCaption.textContent = trigger.dataset.lightboxCaption;
+        lightbox.showModal();
+      });
+    });
+    lightbox.addEventListener('click', function (event) {
+      if (event.target === lightbox) lightbox.close();
     });
   })();
 </script>

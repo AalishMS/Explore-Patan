@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4e9cf">
 <title>Explore Patan — City of Fine Arts</title>
 <meta name="description" content="Explore Patan: history, Durbar Square, Newar food, festivals, temples, and living heritage in Nepal's oldest royal city.">
 <link rel="icon" href="data:,">
@@ -74,6 +75,19 @@
     outline:3px solid var(--gold);
     outline-offset:3px;
   }
+  .skip-link{
+    position:fixed;
+    z-index:100;
+    top:12px;
+    left:12px;
+    padding:10px 14px;
+    background:var(--gold-light);
+    color:var(--indigo-deep);
+    font-weight:700;
+    transform:translateY(-160%);
+    transition:transform .2s ease;
+  }
+  .skip-link:focus-visible{ transform:translateY(0); }
 
   @media (prefers-reduced-motion: reduce){
     *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
@@ -89,8 +103,6 @@
   }
 
   /* ============ HEADER / NAV ============ */
-  #nav-toggle{ display:none; }
-
   header{
     position:fixed; top:0; left:0; right:0; z-index:50;
     background:transparent;
@@ -173,10 +185,14 @@
 
   .hamburger{
     display:none;
+    align-items:center;
+    justify-content:center;
     flex-direction:column;
     gap:5px;
     cursor:pointer;
     padding:8px;
+    border:0;
+    background:transparent;
   }
   .hamburger span{
     width:24px; height:2px; background:#f4e9cf;
@@ -204,7 +220,7 @@
     .nav-cta,
     header.scrolled .nav-cta{ margin:16px 28px; padding:11px 14px; background:var(--maroon); color:var(--gold-light) !important; border-left-color:var(--gold); }
     .hamburger{ display:flex; }
-    #nav-toggle:checked ~ .navbar .nav-links{ max-height:400px; }
+    header.nav-open .nav-links{ max-height:400px; }
   }
 
   /* ============ HERO ============ */
@@ -629,6 +645,24 @@
     border-bottom:1px solid var(--line);
   }
 
+  /* ============ LIVING CULTURE / VISITOR GUIDE ============ */
+  .culture{ background:var(--parchment); }
+  .culture-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--gold); border:1px solid var(--gold); }
+  .culture-card{ min-height:220px; padding:28px; background:var(--surface); display:grid; align-content:start; gap:10px; }
+  .culture-card .craft-mark{ font-family:var(--font-display); color:var(--gold); font-size:1.7rem; line-height:1; }
+  .culture-card h3{ font-size:1.3rem; color:var(--maroon-deep); }
+  .culture-card p{ color:var(--ink-soft); font-size:.95rem; }
+  .visitor-guide{ background:var(--indigo-deep); color:var(--parchment); }
+  .visitor-guide .wrap{ display:grid; grid-template-columns:.9fr 1.1fr; gap:64px; align-items:start; }
+  .visitor-guide .section-head{ margin:0; text-align:left; justify-items:start; }
+  .visitor-guide .section-head h2{ color:var(--gold-light); }
+  .visitor-guide .section-head p{ color:#e7d9b8; }
+  .visit-list{ border-top:1px solid rgba(232,200,120,.42); }
+  .visit-list li{ display:grid; grid-template-columns:86px 1fr; gap:20px; padding:18px 0; border-bottom:1px solid rgba(232,200,120,.28); }
+  .visit-list strong{ color:var(--gold-light); font-size:.78rem; letter-spacing:.13em; text-transform:uppercase; }
+  .visit-list span{ color:#f1e7d1; }
+  @media (max-width:900px){ .culture-grid{ grid-template-columns:1fr; } .visitor-guide .wrap{ grid-template-columns:1fr; gap:40px; } }
+
   /* ============ FESTIVAL BAND ============ */
   .festival{
     background:
@@ -717,7 +751,7 @@
     border:1px solid var(--line);
     transition:transform .25s ease, box-shadow .25s ease;
   }
-  .photo-card:hover{
+  .photo-card:hover, .photo-card:focus-within{
     transform:translateY(-4px);
     box-shadow:0 16px 28px -14px rgba(36,26,20,.3);
   }
@@ -728,7 +762,7 @@
     display:block;
   }
   .photo-card .photo-caption{ padding:16px 18px; }
-  .photo-card .photo-caption h4{
+  .photo-card .photo-caption h3{
     font-family:var(--font-display);
     font-size:1.05rem;
     color:var(--maroon-deep);
@@ -736,6 +770,15 @@
   }
   .photo-card .photo-caption span{ font-size:.85rem; color:var(--ink-soft); }
   .photo-card img[loading="lazy"]{ background:linear-gradient(135deg, var(--parchment) 0%, #e8dcc0 100%); }
+  .photo-trigger{ position:absolute; inset:0; border:0; background:transparent; cursor:zoom-in; }
+  .photo-trigger:focus-visible{ outline-offset:-5px; }
+  .lightbox{ width:min(92vw,1000px); max-height:90vh; padding:0; border:1px solid var(--gold); background:var(--ink); color:var(--parchment); }
+  .lightbox::backdrop{ background:rgba(18,36,57,.86); backdrop-filter:blur(4px); }
+  .lightbox figure{ margin:0; }
+  .lightbox img{ display:block; width:100%; max-height:70vh; object-fit:contain; }
+  .lightbox figcaption{ padding:14px 20px 18px; color:#e7d9b8; }
+  .lightbox-close{ position:absolute; top:10px; right:10px; width:42px; height:42px; border:1px solid var(--gold-light); background:var(--indigo-deep); color:var(--parchment); font-size:1.4rem; cursor:pointer; }
+  .lightbox-close:hover{ background:var(--maroon); }
 
   /* ============ FOOTER ============ */
   footer{
@@ -772,20 +815,20 @@
   .footer-bottom{
     display:flex; justify-content:space-between; align-items:center;
     padding-top:24px; flex-wrap:wrap; gap:12px;
-    font-size:.82rem; color:#8a7c60;
+    font-size:.82rem; color:#cabf9e;
   }
   .footer-note{
     font-size:.8rem;
-    color:#7a6c52;
+    color:#cabf9e;
     max-width:50ch;
   }
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 <!-- ============ HEADER ============ -->
 <header>
-  <input type="checkbox" id="nav-toggle">
   <div class="navbar">
     <a href="#top" class="brand">
       <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -799,25 +842,28 @@
       Explore Patan
     </a>
 
-    <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
+    <button class="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation">
       <span></span><span></span><span></span>
-    </label>
+    </button>
 
-    <nav class="nav-links">
+    <nav class="nav-links" id="primary-navigation" aria-label="Primary navigation">
       <a href="#history">History</a>
       <a href="#places">Places</a>
       <a href="#food">Food</a>
       <a href="#calendar">Festivals</a>
+      <a href="#visit">Plan Your Visit</a>
       <a href="#gallery">Gallery</a>
       <a href="#places" class="nav-cta">Start a walk <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </nav>
   </div>
 </header>
 
+<main id="main-content">
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
   <div class="hero-media">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Patan_durbar_square.jpg/1280px-Patan_durbar_square.jpg"
+         width="1280" height="853" fetchpriority="high"
          alt="Pagoda temples and the golden pillar statue at Patan Durbar Square">
     <div class="hero-scrim"></div>
   </div>
@@ -1116,6 +1162,40 @@
       <h2>Culture That Never Stopped</h2>
       <p>In Patan, culture is not performed for visitors. Bronze casting, woodcarving, mask-making, and pottery continue in neighbourhood workshops the same way they did centuries ago — and they are open to anyone who walks in.</p>
     </div>
+    <div class="culture-grid">
+      <article class="culture-card">
+        <span class="craft-mark" aria-hidden="true">01</span>
+        <h3>Watch the Makers</h3>
+        <p>Look into workshop courtyards with curiosity, then ask before photographing or entering. A short conversation often reveals more than a signboard.</p>
+      </article>
+      <article class="culture-card">
+        <span class="craft-mark" aria-hidden="true">02</span>
+        <h3>Follow the Courtyards</h3>
+        <p>Take the smaller lanes between the square, Kumbheshwar, and the old bahals. They are where Patan’s everyday rhythm becomes visible.</p>
+      </article>
+      <article class="culture-card">
+        <span class="craft-mark" aria-hidden="true">03</span>
+        <h3>Leave Room to Linger</h3>
+        <p>Build time for a tea stop, a temple bell, or an unexpected procession. Patan rewards an unhurried walking pace.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISITOR GUIDE ============ -->
+<section class="visitor-guide" id="visit">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" style="color:var(--gold-light)">A respectful first day</span>
+      <h2>Plan Your Walk</h2>
+      <p>Use the square as your compass, start early, and treat temples and neighbourhood courtyards as living places rather than backdrops.</p>
+    </div>
+    <ul class="visit-list">
+      <li><strong>Morning</strong><span>Begin at Patan Durbar Square while the light is soft and the museums are opening.</span></li>
+      <li><strong>Midday</strong><span>Follow the lanes to the Golden Temple and stop for a Newari lunch near Mangal Bazaar or Swotha.</span></li>
+      <li><strong>Afternoon</strong><span>Choose one slower detour: Kumbheshwar, Mahaboudha, or the Ashoka Stupas.</span></li>
+      <li><strong>Respect</strong><span>Dress modestly in sacred places, remove shoes where requested, and ask before photographing people or rituals.</span></li>
+    </ul>
   </div>
 </section>
 
@@ -1235,54 +1315,67 @@
       <article class="photo-card">
         <img src="images/festivals/rato-machindranath.jpg" width="900" height="600" alt="Rato Machindranath chariot procession in Patan" loading="lazy">
         <div class="photo-caption">
-          <h4>Rato Machindranath Jatra</h4>
+          <h3>Rato Machindranath Jatra</h3>
           <span>The towering chariot pulled through Patan's streets during the annual monsoon festival.</span>
         </div>
+        <button class="photo-trigger" type="button" data-lightbox-src="images/festivals/rato-machindranath.jpg" data-lightbox-alt="Rato Machindranath chariot procession in Patan" data-lightbox-caption="Rato Machindranath Jatra" aria-label="Open Rato Machindranath Jatra photo"></button>
       </article>
 
       <article class="photo-card">
         <img src="images/festivals/tihar.jpg" width="900" height="600" alt="Tihar festival lights and oil lamps in Nepal" loading="lazy">
         <div class="photo-caption">
-          <h4>Tihar / Deepawali</h4>
+          <h3>Tihar / Deepawali</h3>
           <span>Oil lamps line courtyards and doorways across Patan during the five nights of lights.</span>
         </div>
+        <button class="photo-trigger" type="button" data-lightbox-src="images/festivals/tihar.jpg" data-lightbox-alt="Tihar festival lights and oil lamps in Nepal" data-lightbox-caption="Tihar / Deepawali" aria-label="Open Tihar / Deepawali photo"></button>
       </article>
 
       <article class="photo-card">
         <img src="images/festivals/yomari.jpg" width="900" height="600" alt="Traditional Newari festival food and offerings" loading="lazy">
         <div class="photo-caption">
-          <h4>Yomari Punhi</h4>
+          <h3>Yomari Punhi</h3>
           <span>Newari harvest festival celebrating with yomari — steamed rice flour dumplings filled with molasses.</span>
         </div>
+        <button class="photo-trigger" type="button" data-lightbox-src="images/festivals/yomari.jpg" data-lightbox-alt="Traditional Newari festival food and offerings" data-lightbox-caption="Yomari Punhi" aria-label="Open Yomari Punhi photo"></button>
       </article>
 
       <article class="photo-card">
         <img src="images/places/patan-durbar-square.jpg" width="900" height="600" alt="Patan Durbar Square during a festival gathering" loading="lazy">
         <div class="photo-caption">
-          <h4>Durbar Square Gatherings</h4>
+          <h3>Durbar Square Gatherings</h3>
           <span>Major festivals draw the entire city to the square, where temples become stages for processions.</span>
         </div>
+        <button class="photo-trigger" type="button" data-lightbox-src="images/places/patan-durbar-square.jpg" data-lightbox-alt="Patan Durbar Square during a festival gathering" data-lightbox-caption="Durbar Square Gatherings" aria-label="Open Durbar Square Gatherings photo"></button>
       </article>
 
       <article class="photo-card">
         <img src="images/festivals/dashain.jpg" width="900" height="600" alt="Dashain festival kites in the Patan sky" loading="lazy">
         <div class="photo-caption">
-          <h4>Dashain Kites</h4>
+          <h3>Dashain Kites</h3>
           <span>Kites fill the sky during Dashain, Nepal's longest festival, as families gather and elders offer blessings.</span>
         </div>
+        <button class="photo-trigger" type="button" data-lightbox-src="images/festivals/dashain.jpg" data-lightbox-alt="Dashain festival kites in the Patan sky" data-lightbox-caption="Dashain Kites" aria-label="Open Dashain Kites photo"></button>
       </article>
 
       <article class="photo-card">
         <img src="images/festivals/indra-jatra.jpg" width="900" height="600" alt="Traditional mask dance during Indra Jatra in Patan" loading="lazy">
         <div class="photo-caption">
-          <h4>Mask Dances</h4>
+          <h3>Mask Dances</h3>
           <span>Lakhey and tantric mask dances appear during Indra Jatra season and other valley-wide celebrations.</span>
         </div>
+        <button class="photo-trigger" type="button" data-lightbox-src="images/festivals/indra-jatra.jpg" data-lightbox-alt="Traditional mask dance during Indra Jatra in Patan" data-lightbox-caption="Mask Dances" aria-label="Open Mask Dances photo"></button>
       </article>
 
     </div>
   </div>
 </section>
+
+<dialog class="lightbox" aria-labelledby="lightbox-caption">
+  <form method="dialog"><button class="lightbox-close" aria-label="Close photo viewer">×</button></form>
+  <figure><img src="" alt=""><figcaption id="lightbox-caption"></figcaption></figure>
+</dialog>
+
+</main>
 
 <!-- ============ FOOTER ============ -->
 <footer>
@@ -1317,16 +1410,16 @@
         <ul>
           <li><a href="#calendar">Festive Calendar</a></li>
           <li><a href="#gallery">Festival Gallery</a></li>
-          <li><a href="#top">Rato Machindranath Jatra</a></li>
+          <li><a href="#calendar">Rato Machindranath Jatra</a></li>
         </ul>
       </div>
 
       <div class="col">
         <h4>City</h4>
         <ul>
-          <li><a href="#top">Patan Durbar Square</a></li>
-          <li><a href="#top">Getting Around Lalitpur</a></li>
-          <li><a href="#top">Visitor Guidelines</a></li>
+          <li><a href="#places">Patan Durbar Square</a></li>
+          <li><a href="#visit">Getting Around Lalitpur</a></li>
+          <li><a href="#visit">Visitor Guidelines</a></li>
         </ul>
       </div>
     </div>
@@ -1347,6 +1440,34 @@
     }
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
+
+    var menuButton = document.querySelector('.hamburger');
+    var menuLinks = document.querySelectorAll('.nav-links a');
+    menuButton.addEventListener('click', function () {
+      var isOpen = header.classList.toggle('nav-open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+    });
+    menuLinks.forEach(function (link) {
+      link.addEventListener('click', function () {
+        header.classList.remove('nav-open');
+        menuButton.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    var lightbox = document.querySelector('.lightbox');
+    var lightboxImage = lightbox.querySelector('img');
+    var lightboxCaption = lightbox.querySelector('figcaption');
+    document.querySelectorAll('.photo-trigger').forEach(function (trigger) {
+      trigger.addEventListener('click', function () {
+        lightboxImage.src = trigger.dataset.lightboxSrc;
+        lightboxImage.alt = trigger.dataset.lightboxAlt;
+        lightboxCaption.textContent = trigger.dataset.lightboxCaption;
+        lightbox.showModal();
+      });
+    });
+    lightbox.addEventListener('click', function (event) {
+      if (event.target === lightbox) lightbox.close();
+    });
   })();
 </script>
 

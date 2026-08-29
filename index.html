@@ -114,7 +114,9 @@
     font-weight:700;
     letter-spacing:.16em;
     text-transform:uppercase;
+    transition:color .2s ease;
   }
+  .section-compass.on-light .compass-title{ color:var(--maroon-deep); }
   .compass-links{ display:grid; gap:14px; position:relative; }
   .compass-links::before{ content:""; position:absolute; left:50%; top:9px; bottom:9px; width:2px; background:rgba(232,200,120,.7); transform:translateX(-50%); }
   .compass-links a{
@@ -1540,6 +1542,7 @@
       if (event.target === lightbox) lightbox.close();
     });
 
+    var compass = document.querySelector('.section-compass');
     var compassLinks = document.querySelectorAll('.compass-links a');
     var compassSections = Array.from(compassLinks).map(function (link) {
       return document.getElementById(link.dataset.section);
@@ -1555,6 +1558,7 @@
         link.toggleAttribute('aria-current', isCurrent);
         if (isCurrent) link.setAttribute('aria-current', 'location');
       });
+      compass.classList.toggle('on-light', currentSection.id !== 'top' && currentSection.id !== 'visit');
     }
     updateCompass();
     window.addEventListener('scroll', updateCompass, { passive: true });
